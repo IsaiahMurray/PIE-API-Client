@@ -3,6 +3,7 @@ import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
 import Auth from './components/Auth/Auth';
+import Pies from './components/Pies/Pies';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <Navbar setSession={sessionToken}/>
       <Auth/>
+      <Pies/>
     </div>
   );
 }
