@@ -5,7 +5,12 @@ import power from '../../../assets/power.svg';
 const Logout = (props) => {
     return (
         <div>
-            <img id="logout" className="logout" src={power} alt="powerbutton" />
+            <img 
+            id="logout" 
+            onClick={() => props.clearToken()}
+            className="logout" 
+            src={power} 
+            alt="powerbutton" />
         </div>
     )
 }

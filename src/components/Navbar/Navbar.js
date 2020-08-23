@@ -7,8 +7,8 @@ const Navebar = (props) => {
     return(
         <div>
             <nav>
-                <img id="piePic" src={piePic} alt="pie"></img>
-                <Logout/>
+                <img id="piePic" src={piePic} alt="pie"/>
+                <Logout clearToken={props.clearToken}/>
             </nav>
         </div>
     )

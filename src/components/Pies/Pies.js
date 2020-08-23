@@ -7,14 +7,57 @@ const Pies = (props) => {
 
     const [pies, setPies] = useState([])
 
-    const pumpkinPie = {
-        nameOfPie: 'Pumpkin',
-        baseOfPie: 'Pumpkin Puree',
+    // const pumpkinPie = {
+    //     nameOfPie: 'Pumpkin',
+    //     baseOfPie: 'Pumpkin Puree',
+    //     crust: 'Pastry',
+    //     timeToBake: 50,
+    //     servings: 8,
+    //     rating: 4
+    // }
+
+    const pie = [
+        {
+            nameOfPie: 'Pumpkin',
+            baseOfPie: 'Pumpkin Puree',
+            crust: 'Pastry',
+            timeToBake: 50,
+            servings: 8,
+            rating: 4,
+            id: 1
+        },
+        {
+        nameOfPie: 'Apple',
+        baseOfPie: 'Jam',
         crust: 'Pastry',
-        timeToBake: 50,
+        timeToBake: 30,
         servings: 8,
-        rating: 4
-    }
+        rating: 4,
+        id: 2
+    },
+    {
+    nameOfPie: 'Chocolate',
+        baseOfPie: 'Pudding',
+        crust: 'Pastry',
+        timeToBake: 20,
+        servings: 8,
+        rating: 3,
+        id: 3
+    },
+    ]
+
+    useEffect(() => {
+        fetch('http:localhost:3001/pies', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            }
+        })
+        .then(res => res.json())
+        .then(json => setPies(json))
+        .catch(err => console.log(err))
+    }, [])
 
     return(
         <table>
@@ -31,7 +74,7 @@ const Pies = (props) => {
 
             <tbody>
                 {/* Pie data will go here */}
-                <Pie testData={pumpkinPie}/>
+                <Pie testData={pie}/>
             </tbody>
         </table>
     )
